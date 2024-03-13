@@ -432,8 +432,7 @@ button.tag-button {
     }
 
     .unit-input {
-        border-bottom-right-radius: 0;
-        border-top-right-radius: 0;
+        border-radius: 0 !important;
         height: auto;
     }
 

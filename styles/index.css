@@ -11,7 +11,7 @@
 }
 
 .recipe {
-    width: calc(50% - 50px);
+    width: 90%;
     margin: 5px;
     padding: 15px;
     background-color: var(--c30);
@@ -66,5 +66,11 @@
     > * {
         display: block;
         margin: 5px auto;
+    }
+}
+
+@media screen and (min-width: 460px) {
+    .recipe {
+        width: calc(50% - 50px);
     }
 }
