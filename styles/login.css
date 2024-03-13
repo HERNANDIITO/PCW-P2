@@ -1,0 +1,16 @@
+main {
+    form {
+        padding: 1rem;
+        max-width: 250px;
+        margin: 0 auto 1rem auto;
+    }
+
+    .buttons {
+        margin-top: 1rem;
+        padding-bottom: 1rem;
+    }
+}
+
+.alert {
+    margin-top: 1rem;
+}

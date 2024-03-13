@@ -1,0 +1,57 @@
+main {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 5px;
+
+    aside {
+        width: 100%;
+
+        form.form {
+            padding: .5rem;
+        }
+
+        h3 {
+            text-align: center;
+        }
+    }
+
+    > div {
+        width: 100%;
+    }
+}
+
+.results {
+    display: flex;
+    flex-flow: column;
+
+    .latest {
+        flex-grow: 1;
+        .recipe {
+            height: fit-content;
+        }
+    }
+}
+
+footer {
+    margin: auto;
+}
+
+@media screen and (min-width: 576px) {
+    
+    main {
+        hr {
+            display: none;
+        }
+
+        display: flex;
+        flex-flow: row wrap;
+
+        aside {
+            width: 33%
+        };
+
+        > div {
+            width: 66%;
+        }
+    }
+}

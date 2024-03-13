@@ -1,0 +1,126 @@
+form {
+    margin: 1rem;
+}
+
+#ingredients {
+    border-bottom-left-radius: 0;
+}
+
+ul.ingredients-list {
+    margin: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.photos {
+    flex-grow: 1;
+
+    .photos-title {
+        display: flex;
+        flex-flow: row;
+        gap: 2rem;
+    }
+
+    .photo-card {
+        display: flex;
+        flex-flow: column;
+        border: 3.5px solid var(--nav-a-color);
+        background-color: var(--nav-a-hover-color);
+        margin: auto;
+        margin-bottom: 1rem !important;
+        padding: .5rem;
+        border-radius: .5rem;
+        height: fit-content;
+        width: 70%;
+
+        i {
+            color: var(--nav-a-color);
+        }
+
+        .image-input-group {
+            width: fit-content;
+            margin: auto;
+
+            textarea {
+                display: block;
+                margin: 0;
+            }
+        }
+
+        header {
+            display: flex;
+            flex-flow: row;
+            justify-content: space-between;
+            padding: 1rem;
+        }
+
+        body {
+            flex-grow: 1;
+        }
+
+        .textarea-container {
+            margin-bottom: .5rem;
+            textarea {
+                resize: none;
+                width: auto;
+                margin: auto;
+                height: 80px;
+            }
+        }
+    }
+}
+
+.buttons {
+    margin-bottom: 1rem;
+    width: 100%;
+    justify-content: center;
+}
+
+main {
+    padding-bottom: .5rem;
+}
+
+.elaboracion {
+    resize: vertical;
+}
+
+@media screen and (min-width: 670px) {
+    main {
+        display: flex;
+        flex-flow: row wrap;
+
+        aside {
+            width: 33%;
+            
+            form {
+                position: sticky;
+                top: 40px;
+                padding: .5rem    
+            }
+        };
+
+        .photos {
+            width: 66%;
+
+            .gallery {
+                display: flex;
+                flex-flow: row wrap;
+                gap: 5px;
+                justify-content: space-around;
+                
+                .photo-card {
+                    padding: 0;
+                    width: fit-content;
+                    height: 30%;
+                    margin: 0;
+                    margin-bottom: 1rem;
+
+                    img {
+                        height: 250px;
+                        width: 250px;
+                    }
+                }
+            }
+        }
+    }
+}

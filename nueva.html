@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Rochester&family=Trirong:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/nueva.css">
+    <link rel="stylesheet" href="styles/common.css">
+    <link rel="stylesheet" href="css/fontello.css">
+    <link rel="icon" type="image/x-icon" href="imgs/favicon.svg">
+    <title>Nueva</title>
+</head>
+<body>
+    <header>
+        <a href="index.html"><img src="imgs/logo.svg" alt=""></a>
+        <h1>Recetas de toda la vida</h1>
+        <label for="toggleMenu"><i class="demo-icon icon-menu"></i>Menú</label>
+        <input type="checkbox" id="toggleMenu">
+        <nav>
+            <a href="index.html">   <i class="icon-home">     </i> <span>Inicio   </span>  </a>
+            <a href="buscar.html">  <i class="icon-search">   </i> <span>Buscar   </span>  </a>
+            <a href="nueva.html">   <i class="icon-doc-add">  </i> <span>Nueva    </span>  </a>
+            <a href="index.html">   <i class="icon-logout">   </i> <span>Logout   </span>  </a>
+            <a href="login.html">   <i class="icon-login">    </i> <span>Login    </span>  </a>
+            <a href="registro.html"><i class="icon-user-plus"></i> <span>Registro </span>  </a>
+        </nav>
+    </header>
+    <main>
+        <aside>
+            <form class="form">
+                <div class="input-group">
+                    <label for="name"><i class="icon-food"></i>Nombre</label>
+                    <input id="name" placeholder="Espaguetis con carne y tomate" type="text">
+                </div>
+                <hr>
+                <div class="inline-input-group">
+                    <label for="time"><i class="icon-clock"></i>Tiempo de elaboración</label>
+                    <input class="unit-input" id="time" placeholder="90" type="number"> <span class="unit">min.</span>
+                </div>
+                <hr>
+                <div class="inline-input-group">
+                    <label for="quantity"><i class="icon-group"></i>Para cuántas personas</label>
+                    <input id="quantity" placeholder="1-10" type="text">
+                </div>
+                <hr>
+                <div class="inline-input-group difficulty">
+                    <label><i class="icon-star"></i>Dificultad</label>
+                    <div class="stars">
+                        <i class="icon-star"></i>
+                        <i class="icon-star"></i>
+                        <i class="icon-star"></i>
+                    </div>
+                </div>
+                <hr>
+                <div class="input-group">
+                    <label for="ingredients"><i class="icon-basket"></i>Ingredientes</label>
+                    <div class="input-button-group">
+                        <input id="ingredients" placeholder="Escribe aquí tus Ingredientes..." type="text">
+                        <button class="input-button">+</button>
+                    </div>
+                    <ul class="ingredients-list">
+                        <li>Macarrones <button class="tag-button"><i class="icon-cancel"></i></button>  </li>
+                        <li>Tomate <button class="tag-button"><i class="icon-cancel"></i></button></li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="input-group">
+                    <label for="tags"><i class="icon-tags"></i>Etiquetas</label>
+                    <div class="input-button-group">
+                        <input id="tags" list="tag-list" placeholder="Escribe el valor de una etiqueta..." type="text">
+
+                        <datalist id="tag-list">
+                            <option value="Chocolate"></option>
+                            <option value="Coconut"></option>
+                            <option value="Mint"></option>
+                            <option value="Strawberry"></option>
+                            <option value="Vanilla"></option>
+                        </datalist>  
+
+                        <button class="input-button">+</button>
+                    </div>
+                    <div class="tags">
+                        <div class="tag">
+                            <i class="icon-tag"></i><span>Pasta</span><button class="tag-button"><i class="icon-cancel"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="input-group">
+                    <label for="steps"><i class="icon-food-1"></i>Elaboración</label>
+                    <textarea id="steps" placeholder="Espaguetis con carne y tomate" class="elaboracion"></textarea>
+                </div>
+                <hr>
+            </form>
+        </aside>
+        <section class="photos">
+            <h3 class="title photos-title" > <span><i class="icon-picture" ></i> Fotos</span><button><i class="icon-plus"></i></button></h3>
+            <div class="gallery">
+                <div class="photo-card">
+                    <header>
+                        <i class="icon-folder-open"></i>
+                        <i class="icon-plus"></i>
+                    </header>
+    
+                    <div class="image-input-group">
+                        <label for="image">
+                            <img src="imgs/clickHere.jpg" alt="Hac cilck aquí para subir una foto">
+                        </label>
+                        <input accept="image/*" id="image" type="file">
+                        <div class="textarea-container">
+                            <textarea placeholder="Escribe un comentario para tu foto..."></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="buttons">
+            <button><i class="icon-cancel"></i>Limpiar</button>
+            <button type="submit" ><i class="icon-ok"></i>Buscar</button>
+        </footer>
+    </main>
+    <footer>
+        <div class="date">
+            <i class="icon-copyright"></i><a href="acerca.html">PCW</a> 2024
+        </div>
+        <div class="practica">
+            Práctica 1
+        </div>
+    </footer>
+</body>
+</html>

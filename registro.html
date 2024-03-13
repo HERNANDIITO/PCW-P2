@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Rochester&family=Trirong:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/registro.css">
+    <link rel="stylesheet" href="styles/common.css">
+    <link rel="stylesheet" href="css/fontello.css">
+    <link rel="icon" type="image/x-icon" href="imgs/favicon.svg">
+
+    <title>Registro</title>
+</head>
+<body>
+    <header>
+        <a href="index.html"><img src="imgs/logo.svg" alt=""></a>
+        <h1>Recetas de toda la vida</h1>
+        <label for="toggleMenu"><i class="demo-icon icon-menu"></i>Menú</label>
+        <input type="checkbox" id="toggleMenu">
+        <nav>
+            <a href="index.html">   <i class="icon-home">     </i> <span>Inicio   </span>  </a>
+            <a href="buscar.html">  <i class="icon-search">   </i> <span>Buscar   </span>  </a>
+            <a href="nueva.html">   <i class="icon-doc-add">  </i> <span>Nueva    </span>  </a>
+            <a href="index.html">   <i class="icon-logout">   </i> <span>Logout   </span>  </a>
+            <a href="login.html">   <i class="icon-login">    </i> <span>Login    </span>  </a>
+            <a href="registro.html"><i class="icon-user-plus"></i> <span>Registro </span>  </a>
+        </nav>
+    </header>
+    <main>
+        <h2 class="title">Registro</h2>
+        <form class="form">
+            <div class="input-group">
+                <label for="username"> <i class="icon-user"></i> Usuario</label>
+                <input id="username" autofocus required name="username" type="text" placeholder="nombreDeUsuario"
+                    pattern="^[a-zA-ZñÑ][a-zA-ZñÑ]{3, 19}$" minlength="4" maxlength="20"
+                    title="Debe tener una longitud de entre 4 a 20 letras">
+            </div>
+
+            <div class="input-group">
+                <label for="pass"> <i class="icon-key"></i> Contraseña</label>
+                <input title="La contraseña solo puede contrener carácteres alfanuméricos, '_', '-', o '.'" 
+                pattern="^[a-zA-Z0-9ñÑ._-][a-zA-Z0-9ñÑ._-]{4,20}$" id="pass" placeholder="contrasenyaSecreta" required type="password">
+            </div>
+
+            <div class="input-group">
+                <label for="passAgain"> <i class="icon-key"></i> Repetir contraseña</label>
+                <input id="passAgain" placeholder="contrasenyaSecreta" type="password">
+            </div>
+
+            <div class="input-group">
+                <label for="email"> <i class="icon-mail-alt"></i> Email</label>
+                <input id="email" placeholder="abc13@alu.ua.es" required type="email">
+            </div>
+            <footer class="buttons">
+                <button><i class="icon-cancel"></i>Limpiar</button>
+                <button type="submit"><i class="icon-ok"></i>Buscar</button>
+            </footer>
+        </form>
+        <div class="alert">¿Ya tienes cuenta? <a href="registro.html">Inicia sesión</a></div>
+    </main>
+    <footer>
+        <div class="date">
+            <i class="icon-copyright"></i><a href="acerca.html">PCW</a> 2024
+        </div>
+        <div class="practica">
+            Práctica 1
+        </div>
+    </footer>
+</body>
+</html>

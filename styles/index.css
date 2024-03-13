@@ -1,0 +1,70 @@
+.latest {
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    h3 {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+.recipe {
+    width: calc(50% - 50px);
+    margin: 5px;
+    padding: 15px;
+    background-color: var(--c30);
+    border-radius: 15px;
+
+    h3, h4 {
+        display: inline-block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 100%;
+    }
+
+    p {
+        margin: 0;
+    };
+
+    .img-container {
+        overflow: hidden;
+        img {
+            width: 100%;
+            height: auto;
+            transition: all .5s;
+
+            &:hover {
+                scale: 1.5;
+                transition: all .5s;
+            }
+        }
+    }
+
+
+    .stats {
+        color: var(--nav-a-hover-color);
+        display: flex;
+        flex-flow: column;
+    }
+}
+
+.main-footer {
+
+    .text {
+        text-align: center;
+        max-width: fit-content;
+    }
+
+    button {
+
+        max-width: fit-content;
+    }
+
+    > * {
+        display: block;
+        margin: 5px auto;
+    }
+}
