@@ -208,7 +208,10 @@ else if( count($PARAMS) > 0 ) {
 else {
     // SE AÑADE LA IMAGEN PARA MOSTRAR LOS DATOS DE TODOS LOS REGISTROS
     $mysql .= ', (select archivo from foto f where f.idReceta=r.id order by id limit 1) as imagen FROM receta r';
+    $mysql .= ' order by r.fechaHora desc';
 }
+// echo $mysql;
+// exit();
 
 // =================================================================================
 // SE CONSTRUYE LA PARTE DEL SQL PARA PAGINACIÓN

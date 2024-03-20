@@ -12,22 +12,11 @@
     <link rel="stylesheet" href="css/fontello.css">
     <link rel="icon" type="image/x-icon" href="imgs/favicon.svg">
     <title>Buscar</title>
+    <script src="./js/buscar.js"></script>
+    <script src="./js/common.js"></script>
 </head>
 <body>
-    <header>
-        <a href="index.html"><img src="imgs/logo.svg" alt=""></a>
-        <h1>Recetas de toda la vida</h1>
-        <label for="toggleMenu"><i class="demo-icon icon-menu"></i>Menú</label>
-        <input type="checkbox" id="toggleMenu">
-        <nav>
-            <a href="index.html">   <i class="icon-home">     </i> <span>Inicio   </span>  </a>
-            <a href="buscar.html">  <i class="icon-search">   </i> <span>Buscar   </span>  </a>
-            <a href="nueva.html">   <i class="icon-doc-add">  </i> <span>Nueva    </span>  </a>
-            <a href="index.html">   <i class="icon-logout">   </i> <span>Logout   </span>  </a>
-            <a href="login.html">   <i class="icon-login">    </i> <span>Login    </span>  </a>
-            <a href="registro.html"><i class="icon-user-plus"></i> <span>Registro </span>  </a>
-        </nav>
-    </header>
+    <header class="navbar"></header>
     <main>
         <aside>
             <h3 class="title">Filtro de búsqueda</h3>
@@ -96,8 +85,12 @@
             <i class="icon-copyright"></i><a href="acerca.html">PCW</a> 2024
         </div>
         <div class="practica">
-            Práctica 1
+            Práctica 2
         </div>
     </footer>
+    
+    <script>
+        getNavBar();
+    </script>
 </body>
 </html>

@@ -13,23 +13,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <script src="./js/acerca.js"></script>
+    <script src="./js/common.js"></script>
     <title>Acerca</title>
 </head>
 <body>
-    <header>
-        <a href="index.html"><img src="imgs/logo.svg" alt=""></a>
-        <h1>Recetas de toda la vida</h1>
-        <label for="toggleMenu"><i class="demo-icon icon-menu"></i>Menú</label>
-        <input type="checkbox" id="toggleMenu">
-        <nav>
-            <a href="index.html">   <i class="icon-home">     </i> <span>Inicio   </span>  </a>
-            <a href="buscar.html">  <i class="icon-search">   </i> <span>Buscar   </span>  </a>
-            <a href="nueva.html">   <i class="icon-doc-add">  </i> <span>Nueva    </span>  </a>
-            <a href="index.html">   <i class="icon-logout">   </i> <span>Logout   </span>  </a>
-            <a href="login.html">   <i class="icon-login">    </i> <span>Login    </span>  </a>
-            <a href="registro.html"><i class="icon-user-plus"></i> <span>Registro </span>  </a>
-        </nav>
-    </header>
+    <header class="navbar"></header>
     <main>
         <h2 class="title">Información sobre la práctica</h2>
         <div class="table">
@@ -164,8 +153,11 @@
             <i class="icon-copyright"></i><a href="acerca.html">PCW</a> 2024
         </div>
         <div class="practica">
-            Práctica 1
+            Práctica 2
         </div>
     </footer>
+    <script>
+        getNavBar();
+    </script>
 </body>
 </html>

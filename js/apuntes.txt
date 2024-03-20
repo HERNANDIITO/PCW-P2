@@ -1,0 +1,36 @@
+location.search para recuperar los parámetros.
+añadir parametros a la url: url += '?reg=0&cant=2';
+
+tipos de botones, subit y reset.
+El login se hace con un post mediante peticiones ajax.
+onsubmit -> trigger para el submit
+evt.preventDefault para evitar el comportamiento por defecto, importante en el formulario para evitar que la pagina se recargue.
+para recoger el formulario: evt.currentTarget o con el DOM
+var fd = new FormData( formularioHTML ), basandose en todos las etiquetas con name.
+
+peticion para el login
+
+para dejar un comentario
+let url = 'api/recetas/1/comentarios' // 1 es la ID de la receta,
+    xhr = new XMLHttpRequest(),
+    fd = new FormData() // falta el formdata
+    usu, // Datos del usuario (llegan desde session storage)
+    auth // 
+
+if (sessionStorage['datosUsu']) {
+    usu = JSON.parse(sessionStorage['datosUsu']);
+    auth = usu.LOGIN + ":" + usu.TOKEN;
+}
+
+xhr.open('POST', url, true);
+xhr.responsetype = 'json';
+xhr.onload = function() {
+    console.log(r);
+}
+
+fd.append('titulo', 'titulo del comentario');
+fd.append('texto', 'texto del co mentario');
+xhr.setRequestHeader('Authorization', auth);
+xhr.send(fd); // formData
+
+para elminar cosas del sessionStorage -> sessionStorage.removeItem(nombreObj)

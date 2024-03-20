@@ -8,9 +8,10 @@ tiempo: 45
 */
 
 
-function pedirRecetas() {
+function pedirRecetas(incremento) {
 
-    const url = 'api/recetas'
+    const cant = incremento ? Number(document.querySelector("#mostrando").value) + 4 : 4;
+    const url = `api/recetas?reg=${0}&cant=${cant}`
     const xhr = new XMLHttpRequest();
 
     xhr.open('GET', url, true);
@@ -29,7 +30,7 @@ function pedirRecetas() {
             html += `
             <article class="recipe">
                 <div class="desc">
-                    <a href="receta.html">
+                    <a href="receta.html?id=${receta.id}">
                         <div class="img-container">
                             <img src="fotos/${receta.imagen}" alt="">
                         </div>
@@ -58,10 +59,10 @@ function pedirRecetas() {
         });
 
         document.querySelector(".latest").innerHTML = html;
+        document.querySelector("#mostrando").value = response.FILAS.length;
+        document.querySelector("#total").value = response.TOTAL_COINCIDENCIAS;
     }
 
     xhr.send();
 
 }
-
-window.onload = pedirRecetas;

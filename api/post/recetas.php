@@ -254,36 +254,38 @@ else
             // ===============================
             // Si hay fotos, hay que guardarlas
             // ===============================
-            $fotos = [];
+            if(isset($_FILES['fotos'])) {
+                $fotos = [];
 
-            if($_FILES['fotos']['error'][0] != UPLOAD_ERR_NO_FILE)
-            { // Hay ficheros que guardar
-              for($i=0;$i<count($_FILES['fotos']['name']);$i++)
-              {
-                $val_ret = subirFoto($ID_RECETA, $_FILES['fotos'], $descripciones[$i], $i);
-                $fotoSubida             = [];
-                $fotoSubida['NOMBRE']   = $_FILES['fotos']['name'][$i];
-                $fotoSubida['GUARDADA'] = ($val_ret == 0)?'SI':'NO';
-                if($val_ret !=0)
-                {
-                  switch($val_ret)
+                if($_FILES['fotos']['error'][0] != UPLOAD_ERR_NO_FILE)
+                { // Hay ficheros que guardar
+                  for($i=0;$i<count($_FILES['fotos']['name']);$i++)
                   {
-                    case -1: // Error al intentar guardar la foto en la BD
-                        $fotoSubida['ERROR'] = 'No se ha podido guardar la foto en la BD. Error del servidor o la BD no está creada.';
-                      break;
-                    case -2: // Error al intentar guardar la foto en disco
-                        $fotoSubida['ERROR'] = 'No se ha podido copiar la foto a la carpeta de fotos.';
-                      break;
-                    case -3: // La carpeta de fotos no existe o no tiene permisos de escritura
-                        $fotoSubida['ERROR'] = 'No se ha podido copiar la foto a la carpeta de fotos. Puede ser que la carpeta de fotos no exista o no tenga permisos de escritura.';
-                      break;
-                    case 2: // No se guarda la foto porque pesa más de lo permitido
-                        $fotoSubida['ERROR'] = 'No se ha podido guardar la foto porque pesa más de lo permitido (' . ($max_uploaded_file_size/1024) . 'KB)';
-                      break;
+                    $val_ret = subirFoto($ID_RECETA, $_FILES['fotos'], $descripciones[$i], $i);
+                    $fotoSubida             = [];
+                    $fotoSubida['NOMBRE']   = $_FILES['fotos']['name'][$i];
+                    $fotoSubida['GUARDADA'] = ($val_ret == 0)?'SI':'NO';
+                    if($val_ret !=0)
+                    {
+                      switch($val_ret)
+                      {
+                        case -1: // Error al intentar guardar la foto en la BD
+                            $fotoSubida['ERROR'] = 'No se ha podido guardar la foto en la BD. Error del servidor o la BD no está creada.';
+                          break;
+                        case -2: // Error al intentar guardar la foto en disco
+                            $fotoSubida['ERROR'] = 'No se ha podido copiar la foto a la carpeta de fotos.';
+                          break;
+                        case -3: // La carpeta de fotos no existe o no tiene permisos de escritura
+                            $fotoSubida['ERROR'] = 'No se ha podido copiar la foto a la carpeta de fotos. Puede ser que la carpeta de fotos no exista o no tenga permisos de escritura.';
+                          break;
+                        case 2: // No se guarda la foto porque pesa más de lo permitido
+                            $fotoSubida['ERROR'] = 'No se ha podido guardar la foto porque pesa más de lo permitido (' . ($max_uploaded_file_size/1024) . 'KB)';
+                          break;
+                      }
+                    }
+                    array_push($fotos, $fotoSubida);
                   }
                 }
-                array_push($fotos, $fotoSubida);
-              }
             }
 
             // Se prepara la respuesta
