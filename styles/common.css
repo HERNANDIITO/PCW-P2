@@ -490,6 +490,23 @@ button.tag-button {
     }
 }
 
+#difficulty {
+    border: 3.5px solid var(--nav-a-color);
+    background-color: var(--nav-a-hover-color);
+    color: var(--nav-a-color);
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    font-size: 1rem;
+
+    &:hover, &:focus {
+        border-color: var(--nav-a-hover-color);
+        background-color: var(--nav-a-color);
+        color: var(--nav-a-hover-color);
+
+        transition: all .25s;
+    }
+}
+
 .buttons {
     display: flex;
     flex-flow: row wrap;

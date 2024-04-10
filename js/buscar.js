@@ -1,14 +1,3 @@
-function getParams() {
-    const params = new URLSearchParams(window.location.search);
-    let url = 'api/recetas';
-
-    if ( !params ) {
-        pedirRecetas(url);
-    } else {
-        pedirRecetas(url + window.location.search)
-    }
-}
-
 function pedirRecetas( url ) {
 
     const xhr = new XMLHttpRequest();
@@ -70,9 +59,15 @@ function getURL( evt ) {
     let url = 'api/recetas',
         cont = 0;
 
+    const params = new URLSearchParams(window.location.search);
+
+    if ( params ) {
+        pedirRecetas(url + window.location.search);
+        return;
+    }
+
     for ( const [key, value] of fd.entries() ) {
-        console.log(value)
-        if ( value == "" ) {
+        if ( value != "" ) {
             if ( cont == 0 ) {
                 url += '?';
                 cont++;
@@ -81,6 +76,16 @@ function getURL( evt ) {
             }
 
             url += `${key}=${value}`; 
+        }
+    }
+
+    const difficulty = document.querySelector("#difficulty").value;
+
+    if ( difficulty > 0 ) {
+        if ( cont == 0 ) {
+            url += `?d=${difficulty}`
+        } else {
+            url += `&d=${difficulty}`
         }
     }
 
