@@ -4,13 +4,13 @@ function isLogged() {
 
 function mustLogIn() {
     if (!isLogged()) {
-        window.location.replace("index.html")
+        location.href = "index.html";
     }
 }
 
 function mustLogOut() {
     if (isLogged()) {
-        window.location.replace("index.html")
+        location.href = "index.html";
     }
 }
 

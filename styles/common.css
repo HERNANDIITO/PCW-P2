@@ -290,6 +290,7 @@ body {
 }
 
 .page-input {
+    cursor: default;
     width: 2rem;
     text-align: center;
 }
@@ -381,6 +382,10 @@ input:not(input[type="file"]):not(input[type="checkbox"]), button, textarea {
         border-top-left-radius: 0;
         padding: 0 5px;
     }
+}
+
+button {
+    cursor: pointer;
 }
 
 button.tag-button {

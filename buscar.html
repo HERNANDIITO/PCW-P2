@@ -23,19 +23,19 @@
             <form class="form">
                 <div class="input-group">
                     <label for="Autor"><i class="icon-user"></i>Autor</label>
-                    <input id="Autor" name="Autor" type="text">
+                    <input id="autor" name="a" type="text">
                 </div>
                 <div class="input-group">
                     <label for="contiene"><i class="icon-doc"></i>Contiene</label>
-                    <input id="contiene" name="contiene" type="text">
+                    <input id="contiene" name="c" type="text">
                 </div>
                 <div class="input-group">
                     <label for="ingredientes"><i class="icon-basket"></i>Ingredientes</label>
-                    <input id="ingredientes" name="ingredientes" type="text">
+                    <input id="ingredientes" name="i" type="text">
                 </div>
                 <div class="input-group">
                     <label for="etiquetas"><i class="icon-tags"></i>Etiquetas</label>
-                    <input id="etiquetas" name="etiquetas" type="text">
+                    <input id="etiquetas" name="e" type="text">
                 </div>
                 <div class="inline-input-group difficulty">
                     <label><i class="icon-star"></i>Dificultad</label>
@@ -48,7 +48,7 @@
 
                 <div class="buttons">
                     <button><i class="icon-cancel"></i>Limpiar</button>
-                    <button><i class="icon-ok"></i>Buscar</button>
+                    <button type="submit" onclick="getURL(event)"><i class="icon-ok"></i>Buscar</button>
                 </div>
             </form>
         </aside>
@@ -56,28 +56,7 @@
         <div class="results">
             <h3 class="title">Resultado de la búsqueda</h3>
             <div class="latest">
-                <section class="recipe">
-                    <div class="desc">
-                        <a href="receta.html">
-                            <div class="img-container">
-                                <img src="imgs/recetas/macarrones_con_tomate.jpg" alt="">
-                            </div>
-                            <h4 title="Macarrones con tomate" ><strong>Macarrones con tomate</strong></h4>
-                        </a>
-                        <div class="stats">
-                            <p><i class="icon-group"></i>4 Personas</p>
-                            <p><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star-empty"></i>Dificultad</p>
-                            <p><i class="icon-clock"></i>45 min</p>
-                        </div>
-                    </div>
-                </section>
             </div>
-            <footer  class="main-footer">
-                <p class="text">
-                    Mostrando <input value="4" class="page-input"> resultados de <input class="page-input" value="36">
-                </p>
-                <button>Mostrar más</button>
-            </footer>
         </div>
     </main>
     <footer>
@@ -91,6 +70,7 @@
     
     <script>
         getNavBar();
+        getParams();
     </script>
 </body>
 </html>
