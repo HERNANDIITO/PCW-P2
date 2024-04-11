@@ -7,7 +7,6 @@ personas: 4
 tiempo: 45
 */
 
-
 function pedirRecetas(incremento) {
 
     const cant = incremento ? Number(document.querySelector("#mostrando").value) + 4 : 4;

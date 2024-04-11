@@ -53,16 +53,22 @@ function pedirRecetas( url ) {
 
 }
 
+var boot = true;
+
 function getURL( evt ) {
-    evt.preventDefault();
+    console.log("getURL!")
+    if (evt) {
+        evt.preventDefault();
+    }
+
     const fd = new FormData( document.querySelector(".form") )
     let url = 'api/recetas',
         cont = 0;
 
-    const params = new URLSearchParams(window.location.search);
-
-    if ( params ) {
+        
+    if ( boot ) {
         pedirRecetas(url + window.location.search);
+        boot = false;
         return;
     }
 
@@ -92,4 +98,11 @@ function getURL( evt ) {
     console.log(url);
 
     pedirRecetas(url);
+}
+
+function preventEnter(event) {
+    if ( event.key == "Enter" ) {
+        event.preventDefault();
+        getURL(event);
+    }
 }

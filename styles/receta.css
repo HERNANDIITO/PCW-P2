@@ -29,6 +29,18 @@ main {
     padding: .5rem;
 }
 
+#elab {
+    padding: 1.5rem 1rem;
+    border: 3.5px solid var(--nav-a-color);
+    background-color: var(--nav-a-hover-color);
+    color: var(--nav-a-color);
+    width: fit-content;
+    border-radius: 15px;
+    list-style: none;
+    display: block;
+    margin: auto;
+}
+
 h3 {
     width: fit-content;
     margin: 0;

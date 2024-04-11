@@ -23,19 +23,19 @@
             <form class="form">
                 <div class="input-group">
                     <label for="Autor"><i class="icon-user"></i>Autor</label>
-                    <input id="autor" name="a" type="text">
+                    <input onkeypress="preventEnter(event)" id="autor" name="u" type="text">
                 </div>
                 <div class="input-group">
                     <label for="contiene"><i class="icon-doc"></i>Contiene</label>
-                    <input id="contiene" name="c" type="text">
+                    <input onkeypress="preventEnter(event)" id="contiene" name="c" type="text">
                 </div>
                 <div class="input-group">
                     <label for="ingredientes"><i class="icon-basket"></i>Ingredientes</label>
-                    <input id="ingredientes" name="i" type="text">
+                    <input onkeypress="preventEnter(event)" id="ingredientes" name="i" type="text">
                 </div>
                 <div class="input-group">
                     <label for="etiquetas"><i class="icon-tags"></i>Etiquetas</label>
-                    <input id="etiquetas" name="e" type="text">
+                    <input onkeypress="preventEnter(event)" id="etiquetas" name="e" type="text">
                 </div>
                 <div class="inline-input-group difficulty">
                     <label><i class="icon-star"></i>Dificultad</label>
@@ -72,7 +72,7 @@
     
     <script>
         getNavBar();
-        getParams();
+        getURL(event);
     </script>
 </body>
 </html>
