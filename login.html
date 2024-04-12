@@ -21,7 +21,7 @@
         <form class="form">
             <div class="input-group">
                 <label for="username"> <i class="icon-user"></i> Usuario</label>
-                <input id="username" autofocus required name="username" type="text" placeholder="nombreDeUsuario"
+                <input id="username" autofocus required name="usu" type="text" placeholder="nombreDeUsuario"
                     pattern="^[a-zA-ZñÑ][a-zA-ZñÑ]{3, 19}$" minlength="4" maxlength="20"
                     title="Debe tener una longitud de entre 4 a 20 letras">
             </div>
@@ -29,12 +29,12 @@
             <div class="input-group">
                 <label for="pass"> <i class="icon-key"></i> Contraseña</label>
                 <input title="La contraseña solo puede contrener carácteres alfanuméricos, '_', '-', o '.'"
-                    pattern="^[a-zA-Z0-9ñÑ._-][a-zA-Z0-9ñÑ._-]{4,20}$" id="pass" placeholder="contrasenyaSecreta"
+                    pattern="^[a-zA-Z0-9ñÑ._-][a-zA-Z0-9ñÑ._-]{4,20}$" name="pwd" id="pass" placeholder="contrasenyaSecreta"
                     minlength="4" maxlength="20" required type="password">
             </div>
             <footer class="buttons">
-                <button><i class="icon-cancel"></i>Limpiar</button>
-                <button><i class="icon-ok"></i>Buscar</button>
+                <button type="reset"><i class="icon-cancel"></i>Limpiar</button>
+                <button type="submit" onclick="login(event)"><i class="icon-ok"></i>Buscar</button>
             </footer>
         </form>
         <div class="alert">¿Todavía no tienes cuenta? <a href="registro.html">Regístrate</a></div>

@@ -23,11 +23,11 @@
             <form class="form">
                 <div class="input-group">
                     <label for="Autor"><i class="icon-user"></i>Autor</label>
-                    <input onkeypress="preventEnter(event)" id="autor" name="u" type="text">
+                    <input onkeypress="preventEnter(event)" id="autor" name="a" type="text">
                 </div>
                 <div class="input-group">
                     <label for="contiene"><i class="icon-doc"></i>Contiene</label>
-                    <input onkeypress="preventEnter(event)" id="contiene" name="c" type="text">
+                    <input onkeypress="preventEnter(event)" id="contiene" name="t" type="text">
                 </div>
                 <div class="input-group">
                     <label for="ingredientes"><i class="icon-basket"></i>Ingredientes</label>
@@ -49,7 +49,7 @@
                 </div>
 
                 <div class="buttons">
-                    <button><i class="icon-cancel"></i>Limpiar</button>
+                    <button type="reset"><i class="icon-cancel"></i>Limpiar</button>
                     <button type="submit" onclick="getURL(event)"><i class="icon-ok"></i>Buscar</button>
                 </div>
             </form>
