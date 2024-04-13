@@ -1,0 +1,17 @@
+<div class="my-comment">
+    <form id="comment-form">
+        <div class="comment input-group">
+            <label for="title"><i class="icon-basket"></i>Deja tu comentario</label>
+            <input maxlength="100" placeholder="Título del comentario..." name="titulo" id="title" type="text">
+            <textarea maxlength="300" placeholder="Escribe aquí tu comentario..." name="texto" id="comment"></textarea>
+        </div>
+        <footer class="buttons">
+            <button type="reset" ><i class="icon-cancel"></i>Limpiar</button>
+            <button onclick="sendComment(event);" type="submit" ><i class="icon-ok"></i>Comentar</button>
+        </footer>
+    </form>
+</div>
+---
+<div class="alert">
+    Para poder hacer un comentario necesitas hacer <a href="login.html">login</a>
+</div>

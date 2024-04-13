@@ -1,5 +1,10 @@
 function isLogged() {
-    return sessionStorage['datosUsu'] ? sessionStorage['datosUsu'] : false; 
+    try {
+        const usu = JSON.parse(sessionStorage['datosUsu'])
+        return usu && `${(usu).LOGIN}:${(usu).TOKEN}` ? `${(usu).LOGIN}:${(usu).TOKEN}` : false; 
+    } catch {
+        return false;
+    }
 }
 
 function mustLogIn() {
@@ -14,8 +19,27 @@ function mustLogOut() {
     }
 }
 
-function logout() {
-    window.sessionStorage.removeItem('datosUsu')
+// "RESULTADO":"OK",
+// "CODIGO":200,
+// "DESCRIPCION":"Logout realizado correctamente",
+//  "LOGIN":"usuario4"
+
+function logout(evt) {
+    evt.preventDefault();
+    const url = `api/usuarios/logout`;
+    const xhr = new XMLHttpRequest();
+
+    xhr.open('POST', url, true);
+    xhr.setRequestHeader('Authorization', isLogged());
+    xhr.responseType = 'json';
+    xhr.onload = function() {
+        const response = xhr.response;
+        if ( response.RESULTADO == "OK" ) {
+            window.sessionStorage.removeItem('datosUsu')
+        }
+    }
+
+    xhr.send()
 }
 
 function getNavBar() {
@@ -30,7 +54,7 @@ function getNavBar() {
         <a href="index.html">   <i class="icon-home">     </i> <span>Inicio   </span>  </a>
         <a href="buscar.html">  <i class="icon-search">   </i> <span>Buscar   </span>  </a>
         <a href="nueva.html">   <i class="icon-doc-add">  </i> <span>Nueva    </span>  </a>
-        <a onclick="logout();" href="index.html">   <i class="icon-logout">   </i> <span>Logout   </span>  </a>
+        <a onclick="logout(event);" href="index.html">   <i class="icon-logout">   </i> <span>Logout   </span>  </a>
     </nav>
     ` : html += `
     <nav>

@@ -15,6 +15,11 @@ main {
     margin: auto;
 }
 
+input#title {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
 .card-header {
     div {
         display: flex;

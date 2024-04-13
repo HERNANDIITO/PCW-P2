@@ -31,7 +31,7 @@ function getReceta() {
     const id = getID();
     const url = `api/recetas/${id}`
     const xhr = new XMLHttpRequest();
-
+ 
     xhr.open('GET', url, true);
     xhr.responseType = 'json';
     xhr.onload = function() {
@@ -214,27 +214,39 @@ function changeImg( num ) {
 }
 
 function canComment() {
-    if ( isLogged() ) {
-        document.querySelector("#write-comment").innerHTML = `
-        <div class="my-comment">
-            <form>
-                <div class="comment input-group">
-                    <label for="title"><i class="icon-basket"></i>Deja tu comentario</label>
-                    <input maxlength="100" placeholder="Título del comentario..." name="title" id="title" type="text">
-                    <textarea maxlength="300" placeholder="Escribe aquí tu comentario..." name="comment" id="comment"></textarea>
-                </div>
-                <footer class="buttons">
-                    <button><i class="icon-cancel"></i>Limpiar</button>
-                    <button><i class="icon-ok"></i>Buscar</button>
-                </footer>
-            </form>
-        </div>
-        `;
-    } else {
-        document.querySelector("#write-comment").innerHTML = `
-        <div class="alert">
-            Para poder hacer un comentario necesitas hacer <a href="login.html">login</a>
-        </div>
-        `
+    const comment = document.querySelector("#write-comment");
+
+    xhr = new XMLHttpRequest();
+    xhr.open('GET', "comentario.html", true);
+    xhr.onload = function() {
+        const html = xhr.responseText.split("---");
+        if ( isLogged() ) {
+            document.querySelector("#write-comment").innerHTML = html[0];
+        } else {
+            document.querySelector("#write-comment").innerHTML = html[1];
+        }
+    };
+
+    xhr.send();
+}
+
+function sendComment(event) {
+    event.preventDefault();
+    const fd = new FormData( document.querySelector("#comment-form") );
+    const url = `api/recetas/${getID()}/comentarios`;
+    const xhr = new XMLHttpRequest();
+
+    xhr.open('POST', url, true);
+    xhr.setRequestHeader('Authorization', isLogged());
+    xhr.responseType = 'json';
+    xhr.onload = function() {
+        const response = xhr.response;
+        if ( response.RESULTADO == "OK" ) {
+            getComments();
+            document.querySelector("#comment-form").reset();
+            alert(`¡Comentario publicado con éxito!`);
+        }
     }
+
+    xhr.send(fd);
 }
