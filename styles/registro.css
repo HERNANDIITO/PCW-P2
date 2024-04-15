@@ -9,3 +9,15 @@ main {
 .alert {
     margin-top: 1rem;
 }
+
+.error-msg {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    gap: 5px;
+    color: var(--nav-a-hover-color);
+
+    p {
+        width: fit-content;
+    }
+}

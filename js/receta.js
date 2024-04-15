@@ -241,10 +241,11 @@ function sendComment(event) {
     xhr.responseType = 'json';
     xhr.onload = function() {
         const response = xhr.response;
+        console.log(response)
         if ( response.RESULTADO == "OK" ) {
             getComments();
             document.querySelector("#comment-form").reset();
-            alert(`¡Comentario publicado con éxito!`);
+            getModal("¡Comentario publicado con éxito!", `${response.DESCRIPCION}`, false, "")
         }
     }
 

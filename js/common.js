@@ -36,6 +36,7 @@ function logout(evt) {
         const response = xhr.response;
         if ( response.RESULTADO == "OK" ) {
             window.sessionStorage.removeItem('datosUsu')
+            location.reload();
         }
     }
 
@@ -67,11 +68,12 @@ function getNavBar() {
     document.querySelector(".navbar").innerHTML = html;
 }
 
-function getModal( title, body ) {
+function getModal( title, body, redirect, url ) {
     xhr = new XMLHttpRequest();
     xhr.open('GET', "modal.html", true);
     xhr.onload = function() {
-        const html = xhr.responseText.replace("title-text", title).replace("body-text", body);
+        const html = xhr.responseText.replace("title-text", title).replace("body-text", body).replace("closeModal()", `closeModal(${redirect}, '${url}')`);
+
         document.querySelector("html").innerHTML = html + document.querySelector("html").innerHTML;
         document.querySelector("html").classList.add("modal-open");
     };
@@ -79,8 +81,10 @@ function getModal( title, body ) {
     xhr.send();
 }
 
-function closeModal() {
+function closeModal(redirect, page) {
     document.querySelector(".modal-background").remove()
     document.querySelector("html").classList.remove("modal-open");
-
+    if ( redirect ) {
+        location.href = `${page}`
+    }
 }

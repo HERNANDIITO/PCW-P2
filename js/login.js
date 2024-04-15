@@ -12,10 +12,9 @@ function login(event) {
         r = JSON.parse(r);
         if ( r.RESULTADO == 'OK' ) {
             sessionStorage['datosUsu'] = JSON.stringify(r);
-            alert(`Último inicio de sesión: ${r.ULTIMO_ACCESO}`)
-            mustLogOut();
+            getModal("Sesión iniciada con éxito", `Último inicio de sesión: ${r.ULTIMO_ACCESO}`, true, "index.html");
         } else {
-            alert(`Error: ${r.DESCRIPCION}`)
+            getModal("Error al iniciar sesción", `${r.DESCRIPCION}`, false, "")
         }
     }
     
