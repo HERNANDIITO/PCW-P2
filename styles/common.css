@@ -551,6 +551,51 @@ hr {
     }
 }
 
+.modal-open {
+    overflow: hidden;
+}
+
+.modal-background {
+    background-color: rgba(0, 0, 0, 0.25);
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: 100;
+
+    .modal {
+        position: absolute;
+        background-color: white;
+        display: flex;
+        flex-flow: column;
+        width: fit-content;
+        top: 50vh;
+        right: 50vw;
+        padding: 1rem;
+        border-radius: 15px;
+
+        translate: 50% -50%;
+
+        .header {
+            width: 100%;
+            display: flex;
+            flex-flow: row;
+            justify-content: center;
+            gap: 1rem;
+
+            .close-button {
+                button {
+                    border: none;
+                    background-color: transparent;
+                }
+            }
+        }
+
+        .body {
+
+        }
+    }
+}
+
 @media screen and (min-width: 460px) {
 
     body {

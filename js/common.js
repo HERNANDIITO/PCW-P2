@@ -66,3 +66,21 @@ function getNavBar() {
 
     document.querySelector(".navbar").innerHTML = html;
 }
+
+function getModal( title, body ) {
+    xhr = new XMLHttpRequest();
+    xhr.open('GET', "modal.html", true);
+    xhr.onload = function() {
+        const html = xhr.responseText.replace("title-text", title).replace("body-text", body);
+        document.querySelector("html").innerHTML = html + document.querySelector("html").innerHTML;
+        document.querySelector("html").classList.add("modal-open");
+    };
+
+    xhr.send();
+}
+
+function closeModal() {
+    document.querySelector(".modal-background").remove()
+    document.querySelector("html").classList.remove("modal-open");
+
+}
