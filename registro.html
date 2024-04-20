@@ -18,32 +18,33 @@
     <header class="navbar"></header>
     <main>
         <h2 class="title">Registro</h2>
-        <form class="form">
+        <form class="form" onsubmit="register(event)" >
             <div id="usu_input" class="input-group">
                 <label for="usu"> <i class="icon-user"></i> Usuario</label>
                 <input id="usu" autofocus required name="usu" type="text" placeholder="nombreDeUsuario"
-                    pattern="^[a-zA-ZñÑ][a-zA-ZñÑ]{3, 19}$" minlength="4" maxlength="20"
+                    minlength="4" maxlength="20" onblur="checkUsu();"
                     title="Debe tener una longitud de entre 4 a 20 letras">
             </div>
 
             <div id="pass_input" class="input-group">
                 <label for="pwd"> <i class="icon-key"></i> Contraseña</label>
                 <input title="La contraseña solo puede contrener carácteres alfanuméricos, '_', '-', o '.'" 
-                pattern="^[a-zA-Z0-9ñÑ._-][a-zA-Z0-9ñÑ._-]{4,20}$" id="pwd" name="pwd" placeholder="contrasenyaSecreta" required type="password">
+                id="pwd" name="pwd" onblur="checkPass();"
+                placeholder="contrasenyaSecreta" required type="password">
             </div>
 
             <div id="rep_pass" class="input-group">
                 <label for="pwd2"> <i class="icon-key"></i> Repetir contraseña</label>
-                <input id="pwd2" name="pwd2" placeholder="contrasenyaSecreta" type="password">
+                <input id="pwd2" name="pwd2" placeholder="contrasenyaSecreta" type="password" onblur="checkPassRep();">
             </div>
 
             <div id="email_input" class="input-group">
                 <label for="email"> <i class="icon-mail-alt"></i> Email</label>
-                <input id="email" name="email" placeholder="abc13@alu.ua.es" required type="email">
+                <input id="email" name="email" placeholder="abc13@alu.ua.es" required type="email" onblur="checkEmail();">
             </div>
             <footer class="buttons">
                 <button type="reset"><i class="icon-cancel"></i>Limpiar</button>
-                <button onclick="register(event)" type="submit"><i class="icon-ok"></i>Buscar</button>
+                <button type="submit"><i class="icon-ok"></i>Buscar</button>
             </footer>
         </form>
         <div class="alert">¿Ya tienes cuenta? <a href="registro.html">Inicia sesión</a></div>

@@ -2,6 +2,11 @@ form {
     margin: 1rem;
 }
 
+.icon-folder-open {
+    height: fit-content;
+    margin: auto 0;
+}
+
 #ingredients {
     border-bottom-left-radius: 0;
 }
@@ -40,6 +45,11 @@ ul.ingredients-list {
         .image-input-group {
             width: fit-content;
             margin: auto;
+
+            img {
+                width: 100%;
+                height: auto;
+            }
 
             textarea {
                 display: block;
@@ -116,8 +126,8 @@ main {
                     margin-bottom: 1rem;
 
                     img {
-                        height: 250px;
-                        width: 250px;
+                        max-height: 250px;
+                        max-width: 250px;
                     }
                 }
             }

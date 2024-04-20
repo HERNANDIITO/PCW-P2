@@ -36,11 +36,11 @@
                 <hr>
                 <div class="inline-input-group difficulty">
                     <label><i class="icon-star"></i>Dificultad</label>
-                    <div class="stars">
-                        <i class="icon-star"></i>
-                        <i class="icon-star"></i>
-                        <i class="icon-star"></i>
-                    </div>
+                    <select id="difficulty" placeholder="Escribe el valor de una etiqueta..." type="text">
+                        <option value="1">★☆☆</option>  
+                        <option value="2">★★☆</option>
+                        <option value="3">★★★</option>
+                    </select>
                 </div>
                 <hr>
                 <div class="input-group">
@@ -51,29 +51,20 @@
                     </div>
                     <ul class="ingredients-list">
                         <li>Macarrones <button class="tag-button"><i class="icon-cancel"></i></button>  </li>
-                        <li>Tomate <button class="tag-button"><i class="icon-cancel"></i></button></li>
                     </ul>
                 </div>
                 <hr>
                 <div class="input-group">
                     <label for="tags"><i class="icon-tags"></i>Etiquetas</label>
                     <div class="input-button-group">
-                        <input id="tags" list="tag-list" placeholder="Escribe el valor de una etiqueta..." type="text">
+                        <input onkeypress="preventEnter(event, appendTag)" id="tags" list="tag-list" placeholder="Escribe el valor de una etiqueta..." type="text">
 
-                        <datalist id="tag-list">
-                            <option value="Chocolate"></option>
-                            <option value="Coconut"></option>
-                            <option value="Mint"></option>
-                            <option value="Strawberry"></option>
-                            <option value="Vanilla"></option>
-                        </datalist>  
+                        <datalist id="tag-list"></datalist>  
 
-                        <button class="input-button">+</button>
+                        <button onclick="appendTag(event)" class="input-button">+</button>
                     </div>
                     <div class="tags">
-                        <div class="tag">
-                            <i class="icon-tag"></i><span>Pasta</span><button class="tag-button"><i class="icon-cancel"></i></button>
-                        </div>
+
                     </div>
                 </div>
                 <hr>
@@ -85,24 +76,9 @@
             </form>
         </aside>
         <section class="photos">
-            <h3 class="title photos-title" > <span><i class="icon-picture" ></i> Fotos</span><button><i class="icon-plus"></i></button></h3>
+            <h3 class="title photos-title" > <span><i class="icon-picture" ></i> Fotos</span><button onclick="addPhotoCard(event)"><i class="icon-plus"></i></button></h3>
             <div class="gallery">
-                <div class="photo-card">
-                    <header>
-                        <i class="icon-folder-open"></i>
-                        <i class="icon-plus"></i>
-                    </header>
-    
-                    <div class="image-input-group">
-                        <label for="image">
-                            <img src="imgs/clickHere.jpg" alt="Hac cilck aquí para subir una foto">
-                        </label>
-                        <input accept="image/*" id="image" type="file">
-                        <div class="textarea-container">
-                            <textarea placeholder="Escribe un comentario para tu foto..."></textarea>
-                        </div>
-                    </div>
-                </div>
+
             </div>
         </section>
         <footer class="buttons">
@@ -121,6 +97,7 @@
     <script>
         getNavBar();
         mustLogIn();
+        getTagList();
     </script>
 </body>
 </html>
