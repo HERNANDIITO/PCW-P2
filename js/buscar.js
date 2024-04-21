@@ -53,7 +53,7 @@ function pedirRecetas( url ) {
 
 }
 
-var boot = true;
+var ini = true;
 
 function getURL( evt ) {
     console.log("getURL!")
@@ -66,9 +66,9 @@ function getURL( evt ) {
         cont = 0;
 
         
-    if ( boot ) {
+    if ( ini ) {
         pedirRecetas(url + window.location.search);
-        boot = false;
+        ini = false;
         return;
     }
 

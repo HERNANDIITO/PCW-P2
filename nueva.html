@@ -17,74 +17,76 @@
 <body>
     <header class="navbar"></header>
     <main>
-        <aside>
-            <form class="form">
-                <div class="input-group">
-                    <label for="name"><i class="icon-food"></i>Nombre</label>
-                    <input id="name" placeholder="Espaguetis con carne y tomate" type="text">
-                </div>
-                <hr>
-                <div class="inline-input-group">
-                    <label for="time"><i class="icon-clock"></i>Tiempo de elaboración</label>
-                    <input class="unit-input" id="time" placeholder="90" type="number"> <span class="unit">min.</span>
-                </div>
-                <hr>
-                <div class="inline-input-group">
-                    <label for="quantity"><i class="icon-group"></i>Para cuántas personas</label>
-                    <input id="quantity" placeholder="1-10" type="text">
-                </div>
-                <hr>
-                <div class="inline-input-group difficulty">
-                    <label><i class="icon-star"></i>Dificultad</label>
-                    <select id="difficulty" placeholder="Escribe el valor de una etiqueta..." type="text">
-                        <option value="1">★☆☆</option>  
-                        <option value="2">★★☆</option>
-                        <option value="3">★★★</option>
-                    </select>
-                </div>
-                <hr>
-                <div class="input-group">
-                    <label for="ingredients"><i class="icon-basket"></i>Ingredientes</label>
-                    <div class="input-button-group">
-                        <input id="ingredients" placeholder="Escribe aquí tus Ingredientes..." type="text">
-                        <button class="input-button">+</button>
+        <form class="form new-form" onsubmit="uploadRecipe(event)">
+            <div class="row-wrapper">
+                <aside>
+                    <div class="input-group">
+                        <label for="name"><i class="icon-food"></i>Nombre</label>
+                        <input name="nombre" onkeypress="preventEnter(event, uploadRecipe)"id="name" placeholder="Espaguetis con carne y tomate" type="text">
                     </div>
-                    <ul class="ingredients-list">
-                        <li>Macarrones <button class="tag-button"><i class="icon-cancel"></i></button>  </li>
-                    </ul>
-                </div>
-                <hr>
-                <div class="input-group">
-                    <label for="tags"><i class="icon-tags"></i>Etiquetas</label>
-                    <div class="input-button-group">
-                        <input onkeypress="preventEnter(event, appendTag)" id="tags" list="tag-list" placeholder="Escribe el valor de una etiqueta..." type="text">
-
-                        <datalist id="tag-list"></datalist>  
-
-                        <button onclick="appendTag(event)" class="input-button">+</button>
+                    <hr>
+                    <div class="inline-input-group">
+                        <label for="time"><i class="icon-clock"></i>Tiempo de elaboración</label>
+                        <input name="tiempo" onkeypress="preventEnter(event, uploadRecipe)"class="unit-input" id="time" placeholder="90" type="number"> <span class="unit">min.</span>
                     </div>
-                    <div class="tags">
-
+                    <hr>
+                    <div class="inline-input-group">
+                        <label for="quantity"><i class="icon-group"></i>Para cuántas personas</label>
+                        <input name="personas" onkeypress="preventEnter(event, uploadRecipe)"id="quantity" placeholder="1-10" type="text">
                     </div>
-                </div>
-                <hr>
-                <div class="input-group">
-                    <label for="steps"><i class="icon-food-1"></i>Elaboración</label>
-                    <textarea id="steps" placeholder="Espaguetis con carne y tomate" class="elaboracion"></textarea>
-                </div>
-                <hr>
-            </form>
-        </aside>
-        <section class="photos">
-            <h3 class="title photos-title" > <span><i class="icon-picture" ></i> Fotos</span><button onclick="addPhotoCard(event)"><i class="icon-plus"></i></button></h3>
-            <div class="gallery">
-
+                    <hr>
+                    <div class="inline-input-group difficulty">
+                        <label><i class="icon-star"></i>Dificultad</label>
+                        <select name="dificultad" id="difficulty">
+                            <option value="1">★☆☆</option>  
+                            <option value="2">★★☆</option>
+                            <option value="3">★★★</option>
+                        </select>
+                    </div>
+                    <hr>
+                    <div class="input-group">
+                        <label for="ingredients"><i class="icon-basket"></i>Ingredientes</label>
+                        <div class="input-button-group">
+                            <input onkeypress="preventEnter(event, appendIngredient)"id="ingredients" placeholder="Escribe aquí tus Ingredientes..." type="text">
+                            <button onclick="appendIngredient(event)" class="input-button">+</button>
+                        </div>
+                        <ul class="ingredients-list">
+                            
+                        </ul>
+                    </div>
+                    <hr>
+                    <div class="input-group">
+                        <label for="tags"><i class="icon-tags"></i>Etiquetas</label>
+                        <div class="input-button-group">
+                            <input onkeypress="preventEnter(event, appendTag)" id="tags" list="tag-list" placeholder="Escribe el valor de una etiqueta..." type="text">
+    
+                            <datalist id="tag-list"></datalist>  
+    
+                            <button onclick="appendTag(event)" class="input-button">+</button>
+                        </div>
+                        <div class="tags">
+    
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="input-group">
+                        <label for="steps"><i class="icon-food-1"></i>Elaboración</label>
+                        <textarea name="elaboracion" id="steps" placeholder="Espaguetis con carne y tomate" class="elaboracion"></textarea>
+                    </div>
+                    <hr>
+                </aside>
+                <section class="photos">
+                <h3 class="title photos-title" > <span><i class="icon-picture" ></i> Fotos</span><button onclick="addPhotoCard(event)"><i class="icon-plus"></i></button></h3>
+                    <div class="gallery">
+    
+                    </div>
+                </section>
             </div>
-        </section>
-        <footer class="buttons">
-            <button><i class="icon-cancel"></i>Limpiar</button>
-            <button type="submit" ><i class="icon-ok"></i>Buscar</button>
-        </footer>
+            <footer class="buttons">
+                <button type="reset"><i class="icon-cancel"></i>Limpiar</button>
+                <button type="submit" onclick="uploadRecipe(event)" ><i class="icon-ok"></i>Subir</button>
+            </footer>
+        </form>
     </main>
     <footer>
         <div class="date">
@@ -98,6 +100,7 @@
         getNavBar();
         mustLogIn();
         getTagList();
+        iniForm();
     </script>
 </body>
 </html>

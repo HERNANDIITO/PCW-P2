@@ -1,10 +1,10 @@
-form {
-    margin: 1rem;
-}
-
 .icon-folder-open {
     height: fit-content;
     margin: auto 0;
+}
+
+.new-form {
+    width: 100%;
 }
 
 #ingredients {
@@ -15,6 +15,7 @@ ul.ingredients-list {
     margin: 0;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
+    min-width: calc(100% - 38px);
 }
 
 .photos {
@@ -78,6 +79,12 @@ ul.ingredients-list {
             }
         }
     }
+}
+
+.row-wrapper {
+    display: flex;
+    flex-flow: row;
+    gap: 15px;
 }
 
 .buttons {
