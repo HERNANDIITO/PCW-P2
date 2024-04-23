@@ -584,10 +584,23 @@ hr {
             justify-content: center;
             gap: 1rem;
 
+            .modal-title {
+                flex-grow: 1;
+            }
+
             .close-button {
                 button {
+                    padding: 0;
                     border: none;
                     background-color: transparent;
+
+                    &:hover {
+                        text-shadow:
+                         1px  1px 0 var(--nav-a-color),
+                         1px -1px 0 var(--nav-a-color),
+                        -1px  1px 0 var(--nav-a-color),
+                        -1px -1px 0 var(--nav-a-color);
+                    }
                 }
             }
         }

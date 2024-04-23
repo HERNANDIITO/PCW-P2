@@ -170,7 +170,7 @@ function uploadRecipe(event) {
         );
         return;
     }
-    
+
     ingredients.forEach(ing => {
         formData.append('ingredientes[]', ing);
     })
@@ -182,14 +182,28 @@ function uploadRecipe(event) {
     const url = "api/recetas";
     const xhr = new XMLHttpRequest();
 
-    console.log(formData)
-
     xhr.open('POST', url, true);
     xhr.setRequestHeader('Authorization', isLogged());
     xhr.responsetype = 'json';
     xhr.onload = function() {
         let r = xhr.response;
-        console.log(r)
+
+        try {            
+            r = JSON.parse(r);
+            if ( r.RESULTADO == "OK" ) {
+                getModal(
+                    "Receta subida con éxito",
+                    `Se ha subido con éxito la receta ${r.NOMBRE}.`,
+                    true, "index.html"
+                );
+            }
+        } catch (error) {
+            getModal(
+                "Error",
+                `Todos los campos deben de haber sido rellenados para poder publicar una receta.`,
+                false, "index.html"
+            );
+        }
     }
     
     xhr.send(formData); 
