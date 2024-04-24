@@ -558,6 +558,7 @@ hr {
 
 .modal-background {
     background-color: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(5px);
     position: fixed;
     height: 100%;
     width: 100%;
@@ -595,11 +596,11 @@ hr {
                     background-color: transparent;
 
                     &:hover {
-                        text-shadow:
-                         1px  1px 0 var(--nav-a-color),
-                         1px -1px 0 var(--nav-a-color),
-                        -1px  1px 0 var(--nav-a-color),
-                        -1px -1px 0 var(--nav-a-color);
+                        text-shadow: 0px 0px 3px var(--nav-a-color),
+                        1px 1px 3px var(--nav-a-color),
+                        1px -1px 3px var(--nav-a-color),
+                        -1px 1px 3px var(--nav-a-color),
+                        -1px -1px 3px var(--nav-a-color);
                     }
                 }
             }

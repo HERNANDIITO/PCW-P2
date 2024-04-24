@@ -1,7 +1,7 @@
 function getID() {
     const id = new URLSearchParams(window.location.search).get('id');
     
-    if (!id) {
+    if (!id || isNaN(id)) {
         location.href = './';
     }
 
