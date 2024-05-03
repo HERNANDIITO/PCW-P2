@@ -131,6 +131,7 @@ function displayPhoto(photo) {
 
     if ( fichero ) {
         if ( fichero.size > 200000 ) {
+            imgElement.src = "imgs/clickHere.jpg";
             getModal(
                 "Error al subir el archivo",
                 `Tu archivo excede el peso límite de la plataforma.
