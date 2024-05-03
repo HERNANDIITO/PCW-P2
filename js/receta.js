@@ -50,13 +50,7 @@ function getReceta() {
         document.querySelector("#quantity").innerHTML = receta.personas;
         document.querySelector("#time").innerHTML = receta.tiempo;
 
-        for (let i = receta.dificultad; i >= 0; i--) {
-            diff += '<i class="icon-star"></i>';
-        }
-        
-        for(let i = 3 - receta.dificultad; i > 1; i--) {
-            diff += '<i class="icon-star-empty"></i>';
-        }
+        diff += buildDifficultyHtml(receta.dificultad);
 
         document.querySelector("#difficulty-container").innerHTML = diff;
 

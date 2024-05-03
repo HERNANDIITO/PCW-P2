@@ -29,13 +29,8 @@ function pedirRecetas( url ) {
                         <p>
             `
 
-            for (let i = receta.dificultad; i >= 0; i--) {
-                html += '<i class="icon-star"></i>';
-            }
-            
-            for(let i = 3 - receta.dificultad; i > 1; i--) {
-                html += '<i class="icon-star-empty"></i>';
-            }
+            html += buildDifficultyHtml(receta.dificultad);
+
 
             html += `
                         Dificultad
@@ -94,8 +89,6 @@ function getURL( evt ) {
             url += `&d=${difficulty}`
         }
     }
-
-    console.log(url);
 
     pedirRecetas(url);
 }

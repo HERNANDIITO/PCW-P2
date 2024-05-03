@@ -13,6 +13,19 @@ function mustLogIn() {
     }
 }
 
+function buildDifficultyHtml(diff) {
+    html = "";
+    for (let i = diff; i > 0; i--) {
+        html += '<i class="icon-star"></i>';
+    }
+    
+    for(let i = 3 - diff; i > 0; i--) {
+        html += '<i class="icon-star-empty"></i>';
+    }
+
+    return html;
+}
+
 function mustLogOut() {
     if (isLogged()) {
         location.href = "index.html";
